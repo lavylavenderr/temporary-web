@@ -358,12 +358,7 @@
         }
 
         let presence;
-        if (message.t === "INIT_STATE") {
-          presence = message.d[userId];
-        } else if (message.t === "PRESENCE_UPDATE") {
-          if (message.d.discord_user.id === userId) presence = message.d;
-        }
-
+        if (message.d.discord_user.id === userId) presence = message.d;
         if (presence) updatePresence(presence);
       });
 
