@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lavender :3</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="manifest" href="/public/manifest.json" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        font-family: "Figtree", sans-serif;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        min-height: 100vh;
+        padding: 2rem 1rem;
+        background: linear-gradient(135deg, #e6d9f5 0%, #d4c5e8 100%);
+        background-attachment: fixed;
+        color: #4a3869;
+      }
+
+      .content {
+        max-width: 530px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        background: rgba(255, 253, 255, 0.85);
+        padding: 2rem;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(75, 56, 105, 0.15);
+        backdrop-filter: blur(10px);
+        margin-bottom: auto;
+      }
+
+      .banner-img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+        border-radius: 8px;
+      }
+
+      h1 {
+        font-size: 2rem;
+        margin: 0 0 1.5rem 0;
+        text-align: left;
+        color: #4a3869;
+      }
+
+      h2 {
+        margin-top: 2rem;
+        font-size: 1.5rem;
+        color: #4a3869;
+      }
+
+      h3 {
+        margin-top: 1.5rem;
+        font-size: 1.25rem;
+        color: #4a3869;
+      }
+
+      p {
+        font-size: 1.1rem;
+        margin: 0 0 1rem 0;
+        text-align: left;
+        color: #5a4879;
+        line-height: 1.6;
+      }
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+
+      .now-listening {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 0.5rem;
+        background: #f5eeff;
+        padding: 1rem;
+        border: 2px solid #8b6fb8;
+        border-radius: 12px;
+        box-shadow: 4px 4px 0px #8b6fb8;
+        transition: all 0.1s ease;
+      }
+
+      .now-listening:hover {
+        transform: translate(2px, 2px);
+        box-shadow: 2px 2px 0px #8b6fb8;
+      }
+
+      .now-listening img {
+        width: 76px;
+        height: 76px;
+        border: 2px solid #8b6fb8;
+        border-radius: 8px;
+        flex-shrink: 0;
+      }
+
+      .song-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        overflow: hidden;
+      }
+
+      .song-title {
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: #4a3869;
+        word-wrap: break-word;
+      }
+
+      .song-artist {
+        font-size: 0.95rem;
+        color: #7a5fa5;
+        font-weight: 500;
+        word-wrap: break-word;
+      }
+
+      .links {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.8rem;
+        margin-top: 0.5rem;
+      }
+
+      .links a {
+        text-decoration: none;
+        color: #4a3869;
+        font-weight: 600;
+        text-align: center;
+        padding: 0.75rem 0.6rem;
+        background: #f5eeff;
+        border: 2px solid #8b6fb8;
+        border-radius: 8px;
+        box-shadow: 4px 4px 0px #8b6fb8;
+        transition: all 0.1s ease;
+        font-size: 0.95rem;
+      }
+
+      .links a:hover {
+        transform: translate(2px, 2px);
+        box-shadow: 2px 2px 0px #8b6fb8;
+        background: #efe5ff;
+      }
+
+      ._81x33-container,
+      ._81x33-container > div {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 4px;
+      }
+
+      ._81x33-container img {
+        max-width: 88px;
+        height: auto;
+      }
+
+      /* Mobile optimizations */
+      @media (max-width: 600px) {
+        body {
+          padding: 1rem 1rem 4rem;
+          align-items: flex-start;
+        }
+
+        .content {
+          padding: 1.5rem;
+        }
+
+        h1 {
+          font-size: 1.75rem;
+        }
+
+        h2 {
+          font-size: 1.35rem;
+          margin-top: 1.5rem;
+        }
+
+        h3 {
+          font-size: 1.15rem;
+        }
+
+        p {
+          font-size: 1rem;
+        }
+
+        .links {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 0.6rem;
+        }
+
+        .links a {
+          padding: 0.65rem 0.5rem;
+          font-size: 0.9rem;
+        }
+
+        .now-listening {
+          flex-direction: column;
+          text-align: center;
+          padding: 1rem;
+        }
+
+        .now-listening img {
+          width: 120px;
+          height: 120px;
+        }
+
+        .song-info {
+          align-items: center;
+          width: 100%;
+        }
+
+        .song-title {
+          font-size: 1rem;
+        }
+
+        .song-artist {
+          font-size: 0.9rem;
+        }
+      }
+
+      @media (max-width: 400px) {
+        .links {
+          grid-template-columns: 1fr;
+        }
+
+        h1 {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <img src="/public/banner.png" class="banner-img" alt="Banner" />
+      <h1>hey there, how's it goin? :3</h1>
+      <p style="margin-top: -15px">
+        my name is lavender, i am a canadian furry exploring the interwebs with
+        an interest in silly little projects from time to time! i'm also a
+        full-stack engineer specializing in typescript.
+      </p>
+      <p style="margin-top: -15px">
+        i do a lot of things, such as photography as a side-hobby and i find
+        music pretty interesting, it's fun to listen to. you'll usually catch me
+        listening to music or running around doing transit photography. or
+        playing my favorite train/transit games!~
+      </p>
+      <h2 style="margin-top: -5px">the assortment of stuff</h2>
+      <p style="margin-top: -20px">
+        here is some random stuff i added to pad room on the site. enjoy!
+      </p>
+
+      <div class="_81x33-container" style="margin-bottom: 20px">
+        <div>
+          <img
+            src="https://88x31.datakra.sh/img/random/autism_pride.gif"
+            alt=""
+          />
+          <img
+            src="https://88x31.datakra.sh/img/founded/88x31_ElfTwinks.png"
+            alt=""
+          />
+          <img
+            src="https://blinkies.cafe/b/display/blinkiesCafe-badge.gif"
+            alt=""
+          />
+          <img src="/public/queercoded.jpg" alt="" />
+          <img src="/public/a52.png" alt="" />
+          <img src="/public/a80.gif" alt="" />
+          <img src="/public/a84.gif" alt="" />
+          <img src="/public/a101.gif" alt="" />
+          <img src="/public/j3.jpg" alt="" />
+          <img src="/public/pride.gif" alt="" />
+          <img src="/public/rainbow_bev.gif" alt="" />
+          <img src="/public/starlocked.gif" alt="" />
+          <img src="/public/button25.gif" alt="" />
+          <img src="/public/linuxnow2.gif" alt="" />
+          <img src="/public/notepad.gif" alt="" />
+          <img src="/public/a6.gif" alt="" />
+          <img src="/public/b12.gif" alt="" />
+          <img src="/public/a128.gif" alt="" />
+          <img src="/public/a93.gif" alt="" />
+        </div>
+      </div>
+
+      <h3 style="margin-top: -5px">now listening</h3>
+      <div id="now-listening" class="now-listening" style="margin-top: -20px">
+        <img
+          id="album-art"
+          src="https://github.com/lavylavenderr.png"
+          alt="Album Art"
+        />
+        <div class="song-info">
+          <div id="song-title" class="song-title">waiting for lanyard...</div>
+          <div id="song-artist" class="song-artist">uwu owo</div>
+        </div>
+      </div>
+
+      <h3 style="margin-top: 2px">links and uhh socials</h3>
+      <div class="links" style="margin-top: -20px">
+        <a href="https://github.com/lavylavenderr" target="_blank">GitHub</a>
+        <a href="https://flickr.com/lavenderline40" target="_blank">Flickr</a>
+        <a href="https://www.instagram.com/lavenderline40" target="_blank"
+          >Instagram</a
+        >
+    </div>
+
+    <script>
+      const userId = "988801425196867644";
+      const nowListeningEl = document.getElementById("now-listening");
+      const albumArtEl = document.getElementById("album-art");
+      const songTitleEl = document.getElementById("song-title");
+      const songArtistEl = document.getElementById("song-artist");
+
+      const ws = new WebSocket("wss://api.lanyard.rest/socket");
+      let heartbeatInterval;
+
+      ws.addEventListener("open", () => {
+        ws.send(JSON.stringify({ op: 2, d: { subscribe_to_id: userId } }));
+      });
+
+      ws.addEventListener("message", (event) => {
+        const message = JSON.parse(event.data);
+
+        if (message.op === 1) {
+          const interval = message.d.heartbeat_interval;
+          heartbeatInterval = setInterval(
+            () => ws.send(JSON.stringify({ op: 3 })),
+            interval
+          );
+        }
+
+        let presence;
+        if (message.t === "INIT_STATE") {
+          presence = message.d[userId];
+        } else if (message.t === "PRESENCE_UPDATE") {
+          if (message.d.discord_user.id === userId) presence = message.d;
+        }
+
+        if (presence) updatePresence(presence);
+      });
+
+      function updatePresence(presence) {
+        if (presence.listening_to_spotify) {
+          const spotify = presence.spotify;
+
+          albumArtEl.src = "https:" + spotify.album_art_url.split(":").pop();
+          songTitleEl.textContent = spotify.song;
+          songArtistEl.textContent = spotify.artist;
+          nowListeningEl.style.display = "flex";
+        } else {
+          songTitleEl.textContent = "no muwusic to report";
+          songArtistEl.textContent = ":3 :3 :3 :3 :3 :3 :3"
+          albumArtEl.src = "/public/twotime.png"
+        }
+      }
+    </script>
+  </body>
+</html>
